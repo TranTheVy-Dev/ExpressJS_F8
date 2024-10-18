@@ -4,6 +4,9 @@ const port = 3000;
 const handlebars = require("express-handlebars"); // import thu vien handerbars trong express js
 const path = require("path");
 const route = require("./routes");
+const db = require("./config/db");
+//connect db
+db.connect();
 //xử lý dữ liệu từ form data
 app.use(
   express.urlencoded({

@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/DavidTran050204/node-f8#readme",
   "description": "",
-  "dependencies": {
+  " ": {
     "express": "^4.21.0",
     "express-handlebars": "^8.0.1",
     "hbs": "^4.2.0",
