@@ -1,1 +1,11 @@
+# Bỏ qua node_modules
 node_modules/
+
+# Bỏ qua file môi trường
+.env
+
+# Bỏ qua log files
+*.log
+
+# Bỏ qua thư mục tạm thời
+tmp/
