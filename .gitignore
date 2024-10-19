@@ -2,7 +2,8 @@
 node_modules/
 
 #bỏ qua file views
-src/resources
+src/resources/
+src/public/
 
 # Bỏ qua file môi trường
 .env
