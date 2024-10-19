@@ -1,6 +1,9 @@
 # Bỏ qua node_modules
 node_modules/
 
+#bỏ qua file views
+/resources
+
 # Bỏ qua file môi trường
 .env
 
