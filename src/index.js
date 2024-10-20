@@ -23,6 +23,10 @@ app.use(express.json());
 app.engine(
   "hbs",
   handlebars.engine({
+    runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+      allowProtoMethodsByDefault: true
+    },
     extname: ".hbs",
     partialsDir: path.join(__dirname, "resources", "views", "partials"),
   })

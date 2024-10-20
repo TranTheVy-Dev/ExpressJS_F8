@@ -1,16 +1,17 @@
 const products = require("../models/products");
 
 class SiteController {
-    async index(req, res) {
-        try {
-            const docs = await products.find({});
-            res.json(docs);
-        } catch (error) {
-            res.status(500).jsonp({ error: "message" });
-        }
+  async index(req, res, next) {
+    try {
+      const docs = await products.find({});
+      res.render('home',{docs});
+    } catch (error) {
+      //config erro = middleware
+      next(error);
     }
-    search(req, res) {
-        res.render("search");
-    }
+  }
+  search(req, res) {
+    res.render("search");
+  }
 }
 module.exports = new SiteController();
