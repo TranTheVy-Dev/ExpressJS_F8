@@ -4,7 +4,7 @@ class SiteController {
   async index(req, res, next) {
     try {
       const docs = await products.find({});
-      res.render('home',{docs});
+      res.render("home", { docs });
     } catch (error) {
       //config erro = middleware
       next(error);

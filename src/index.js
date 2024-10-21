@@ -24,8 +24,9 @@ app.engine(
   "hbs",
   handlebars.engine({
     runtimeOptions: {
+      //sửa lỗi bảo mật của handlebars khi lấy dữ liệu trả về từ database mongo db
       allowProtoPropertiesByDefault: true,
-      allowProtoMethodsByDefault: true
+      allowProtoMethodsByDefault: true,
     },
     extname: ".hbs",
     partialsDir: path.join(__dirname, "resources", "views", "partials"),
