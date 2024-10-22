@@ -2,7 +2,7 @@ const products = require("../models/products");
 const { multipleMongooesToObject } = require("../../util/mongooes");
 // const { mongooesToObject } = require("../../util/mongooes");
 
-class SiteController {
+class ProductDetailController {
   async index(req, res, next) {
     try {
       const docs = await products.find({});
@@ -20,4 +20,4 @@ class SiteController {
     res.render("detailProduct");
   }
 }
-module.exports = new SiteController();
+module.exports = new ProductDetailController();
