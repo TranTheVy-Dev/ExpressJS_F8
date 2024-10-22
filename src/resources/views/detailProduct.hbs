@@ -1,8 +1,7 @@
-
 <body>
   <div class="container my-3">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 my-3">
         <form action="" method="get">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Recipient's username"
@@ -14,26 +13,24 @@
           <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
             Top Dịch vụ sử dụng nhiều
           </a>
-          <a href="#" class="list-group-item list-group-item-action">1. Chích thuốc cho chó</a>
-          <a href="#" class="list-group-item list-group-item-action">2. Tắm mèo</a>
-          <a href="#" class="list-group-item list-group-item-action">3. Chích thuốc cho mèo</a>
-          <a href="#" class="list-group-item list-group-item-action">4. Cắt. tỉa lông chó</a>
+          {{#each docs}}
+          <a href="#" class="list-group-item list-group-item-action">{{this.name}}</a>
+          {{/each}}
         </div>
       </div>
       <div class="col-md-9">
         <!-- phần sản phẩm chi tiết -->
         <div class="row my-3">
           <div class="col-md-6">
-            <img src="{{doc.image}}" class="w-100">
+            <img src="{{doc.image}}" class="w-100" style="height: 400px;">
           </div>
           <div class="col-md-6">
             <h2>{{doc.name}}</h2>
             <div class="row my-3">
-              <div class="col-md-6">Hãng : <strong> Nike</strong></div>
+              <div class="col-md-6">Loại : <strong> Dịch Vụ</strong></div>
               <div class="col-md-6">Dòng : <strong>Jordan</strong></div>
             </div>
             <div class="text-danger fs-1">{{doc.price}} $</div>
-            <small> hiện shop còn <Strong class="text-danger"> 5 </Strong> Đôi </small>
             <div class="row my-3">
               <div class="col-sm-6"><button class=" btn btn-outline-danger btn-lg">Đặt lịch hẹn</button></div>
               <hr>
@@ -51,7 +48,7 @@
           <img src="{{this.image}}" class="card-img-top" alt="..." style="height: 200px;">
           <div class="card-body">
             <h5 class="card-title">{{this.name}}</h5>
-            <p class="card-text">{{this.price}}</p>
+            <p class="card-text">{{this.price}} $</p>
             <a href="/productDetail/{{this.slug}}" class="btn btn-primary">xem chi tiết</a>
           </div>
         </div>
@@ -72,10 +69,9 @@
       <div class="col-sm-3">
         <Strong>Trần Thế Vỹ</Strong> <br> 2:24 10/10/2023 <br>
       </div>
-      <div class="col-sm-9 text-start" >
+      <div class="col-sm-9 text-start">
         Dịch vụ rất OK
       </div>
     </div>
   </div>
 </body>
-
