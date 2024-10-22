@@ -1,0 +1,81 @@
+
+<body>
+  <div class="container my-3">
+    <div class="row">
+      <div class="col-md-3">
+        <form action="" method="get">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Recipient's username"
+              aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+          </div>
+        </form>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            Top Dịch vụ sử dụng nhiều
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">1. Chích thuốc cho chó</a>
+          <a href="#" class="list-group-item list-group-item-action">2. Tắm mèo</a>
+          <a href="#" class="list-group-item list-group-item-action">3. Chích thuốc cho mèo</a>
+          <a href="#" class="list-group-item list-group-item-action">4. Cắt. tỉa lông chó</a>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <!-- phần sản phẩm chi tiết -->
+        <div class="row my-3">
+          <div class="col-md-6">
+            <img src="{{doc.image}}" class="w-100">
+          </div>
+          <div class="col-md-6">
+            <h2>{{doc.name}}</h2>
+            <div class="row my-3">
+              <div class="col-md-6">Hãng : <strong> Nike</strong></div>
+              <div class="col-md-6">Dòng : <strong>Jordan</strong></div>
+            </div>
+            <div class="text-danger fs-1">{{doc.price}} $</div>
+            <small> hiện shop còn <Strong class="text-danger"> 5 </Strong> Đôi </small>
+            <div class="row my-3">
+              <div class="col-sm-6"><button class=" btn btn-outline-danger btn-lg">Đặt lịch hẹn</button></div>
+              <hr>
+              <p class="my-3">{{doc.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 style="text-align:center ;">có thể bạn thích</h2>
+    <div class="row mt-3">
+      {{#each docs}}
+      <div class="col-sm-3">
+        <div class="card mb3">
+          <img src="{{this.image}}" class="card-img-top" alt="..." style="height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.price}}</p>
+            <a href="/productDetail/{{this.slug}}" class="btn btn-primary">xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <h3 class="text-danger my-3">Đánh giá Sản Phẩm</h3>
+    <div class="row">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Tên Của Bạn</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Tên">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Hãy Nêu Cảm Nghĩ của bạn</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <button class="btn btn-outline-primary btn-lg my-3">Gửi</button>
+      </div>
+      <div class="col-sm-3">
+        <Strong>Trần Thế Vỹ</Strong> <br> 2:24 10/10/2023 <br>
+      </div>
+      <div class="col-sm-9 text-start" >
+        Dịch vụ rất OK
+      </div>
+    </div>
+  </div>
+</body>
+
