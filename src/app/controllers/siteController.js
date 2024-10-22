@@ -8,7 +8,7 @@ class SiteController {
       //chuyển đổi các phần tử trong docs(documents) trả về của products.find({}) thành object thuần qua sử dụng phương thức toObject
       //và lưu về trong docsToObject
       // const docsToObject = docs.map((docs) => docs.toObject());
-      res.render("home", { docs: multipleMongooesToObject(docs) });
+      res.render("home", { docs: multipleMongooesToObject(docs),isHomePage: true });
     } catch (error) {
       //config erro = middleware
       next(error);

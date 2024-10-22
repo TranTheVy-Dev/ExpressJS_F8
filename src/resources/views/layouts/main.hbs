@@ -10,8 +10,13 @@
     <title>Node JS </title>
 </head>
 <body>
+
 {{> header}}
-<div class="container"> 
+{{!-- nếu ishompage là true thì nó sẽ hiệu banner --}}
+{{#if isHomePage}}
+    {{> banner}}
+  {{/if}}
+<div class="container">
 {{{body}}}
 </div>
 

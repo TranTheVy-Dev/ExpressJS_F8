@@ -14,7 +14,7 @@
             Top Dịch vụ sử dụng nhiều
           </a>
           {{#each docs}}
-          <a href="#" class="list-group-item list-group-item-action">{{this.name}}</a>
+          <a href="/productDetail/{{this.slug}}" class="list-group-item list-group-item-action">{{this.name}}</a>
           {{/each}}
         </div>
       </div>
@@ -22,7 +22,7 @@
         <!-- phần sản phẩm chi tiết -->
         <div class="row my-3">
           <div class="col-md-6">
-            <img src="{{doc.image}}" class="w-100" style="height: 400px;">
+            <img src="{{doc.image}}" class="w-100" style="border-radius: 20px;">
           </div>
           <div class="col-md-6">
             <h2>{{doc.name}}</h2>
