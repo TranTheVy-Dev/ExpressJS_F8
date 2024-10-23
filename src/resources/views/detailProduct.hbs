@@ -32,22 +32,7 @@
       </div>
     </div>
    <p class="my-3">Mô Tả : {{doc.description}}</p>
-    <h2 style="text-align:center ;">có thể bạn thích</h2>
-    <div class="row mt-3">
-      {{#each docs}}
-      <div class="col-sm-3">
-        <div class="card mb3">
-          <img src="{{this.image}}" class="card-img-top" alt="..." style="height: 200px;">
-          <div class="card-body">
-            <h5 class="card-title">{{this.name}}</h5>
-            <p class="card-text">{{this.price}} $</p>
-            <a href="/productDetail/{{this.slug}}" class="btn btn-outline-success btn-lg">xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-    <h3 class="text-danger my-3">Đánh giá Sản Phẩm</h3>
+   <h3 class="text-danger my-3">Đánh giá Sản Phẩm</h3>
     <div class="row">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Tên Của Bạn</label>
@@ -66,4 +51,20 @@
       </div>
     </div>
   </div>
+    <h2 style="text-align:center ;">có thể bạn thích</h2>
+    <div class="row mt-3">
+      {{#each docs}}
+      <div class="col-sm-3">
+        <div class="card mb3">
+          <img src="{{this.image}}" class="card-img-top" alt="..." style="height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.price}} $</p>
+            <a href="/productDetail/{{this.slug}}" class="btn btn-outline-success btn-lg">xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    
 </body>
