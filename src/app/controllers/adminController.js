@@ -15,6 +15,7 @@ class AdminController {
   }
   async create(req, res, next) {
     try {
+      
       res.render("admin/createProduct");
     } catch (error) {
       next(error);

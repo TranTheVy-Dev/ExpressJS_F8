@@ -1,39 +1,40 @@
 <body>
     <div class="row">
-      
-            <div class="container">
-                <h2 class="my-3">Quản Lý Dịch Vụ </h2>
-                <a class="btn btn-outline-success float-end mb-3" href="">Thêm dịch vụ</a>
-                <table class="table text-center align-middle">
-                    <thead>
-                        <th>ID</th>
-                        <th>Hình</th>
-                        <th class="text-start">Tên</th>
-                        <th class="text-start">Ngày tạo</th>
-                        <th class="text-start">Ngày sửa</th>
-                        <th class="text-end">Giá</th>
-                        <th class="text-end"></th>
-                    </thead>
-                    <tbody>
-                        {{#each docs}}
-                        <tr>
-                            <td>{{this.slug}}</td>
-                            <td><img src="{{this.image}}" alt="" style="width:40px;height: 40px;" class="rounded-3">
-                            </td>
-                            <td class="text-start">{{this.name}}</td>
-                            <td class="text-start">{{this.createdAt}}</td>
-                            <td class="text-start">{{updatedAt}}</td>
-                            <td class="text-end">{{this.price}}$</td>
-                            <td class="text-end">
-                                <button class="btn btn-outline-success"><i class="fa-solid fa-gear"></i></button>
-                                <button class="btn btn-outline-danger mt-2"><i class="fa-solid fa-trash-can"></i></button>
-                            </td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            </div>
+        <div class="container">
+            <h2 class="my-3">Quản Lý Dịch Vụ </h2>
+            <a class="btn btn-outline-success float-end mb-3" href="/admin/create">Thêm dịch vụ</a>
+            <table class="table text-center align-middle">
+                <thead>
+                    <th>ID</th>
+                    <th>Hình</th>
+                    <th class="text-start">Tên</th>
+                    <th class="text-start">Ngày tạo</th>
+                    <th class="text-start">Ngày sửa</th>
+                    <th class="text-end">Giá</th>
+                    <th class="text-end"></th>
+                </thead>
+                <tbody>
+                    {{#each docs}}
+                    <tr>
+                        <td>{{this._id}}</td>
+                        <td><img src="{{this.image}}" alt="" style="width:40px;height: 40px;" class="rounded-3">
+                        </td>
+                        <td class="text-start">{{this.name}}</td>
+                        <td class="text-start">{{this.createdAt}}</td>
+                        <td class="text-start">{{updatedAt}}</td>
+                        <td class="text-end">{{this.price}}$</td>
+                        <td class="text-end">
+                            <button class="btn btn-outline-success"><a href="/admin/delete/{{this._id}}"><i
+                                        class="fa-solid fa-gear"></i></a></button>
+                            <button class="btn btn-outline-danger mt-2"><a href="/admin/update/{{this._id}}"><i
+                                        class="fa-solid fa-trash-can"></i></a></button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
+    </div>
     </div>
 
 </body>
