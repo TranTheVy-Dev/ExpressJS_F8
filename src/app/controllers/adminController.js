@@ -1,35 +1,35 @@
 const products = require("../models/products");
-const {multipleMongooesToObject} = require("../../util/mongooes");
+const { multipleMongooesToObject } = require("../../util/mongooes");
 class AdminController {
   //tham so phai theo thu tu req res, next neu khong se bi loi
   async home(req, res, next) {
     try {
       const docs = await products.find({});
       if (!docs) {
-        res.send("doc not found")
+        res.send("doc not found");
       }
-      res.render("homeProduct", { docs: multipleMongooesToObject(docs) });
+      res.render("admin/homeProduct", { docs: multipleMongooesToObject(docs) });
     } catch (error) {
       next(error);
     }
   }
   async create(req, res, next) {
     try {
-      res.render("createProduct");
+      res.render("admin/createProduct");
     } catch (error) {
       next(error);
     }
   }
   async delete(req, res, next) {
     try {
-      res.render("deleteProduct");
+      res.render("admin/deleteProduct");
     } catch (error) {
       next(error);
     }
   }
   async update(req, res, next) {
     try {
-      res.render("updateProduct");
+      res.render("admin/updateProduct");
     } catch (error) {
       next(error);
     }
