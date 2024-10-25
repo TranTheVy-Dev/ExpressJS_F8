@@ -31,5 +31,10 @@
   "devDependencies": {
     "node-sass": "^9.0.0",
     "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.7.2"
   }
 }
