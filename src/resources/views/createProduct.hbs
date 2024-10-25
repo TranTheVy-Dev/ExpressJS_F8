@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Tạo Sản Phẩm Mới</h2>
+    <form method="post">
+        <!-- Product Name -->
+        <div class="mb-3">
+            <label for="productName" class="form-label">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="productName" placeholder="Nhập tên sản phẩm" required>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-3">
+            <label for="productDescription" class="form-label">Mô tả sản phẩm</label>
+            <textarea class="form-control" id="productDescription" rows="3" placeholder="Mô tả sản phẩm"
+                required></textarea>
+        </div>
+        <!-- Product Price -->
+        <div class="mb-3">
+            <label for="productPrice" class="form-label">Giá sản phẩm (VNĐ)</label>
+            <input type="number" class="form-control" id="productPrice" placeholder="Nhập giá sản phẩm" required>
+        </div>
+
+        <!-- Product Category -->
+        <div class="mb-3">
+            <label for="productCategory" class="form-label">Loại sản phẩm</label>
+            <select class="form-select" id="productCategory" required>
+                <option selected disabled>Chọn loại sản phẩm</option>
+                <option value="electronics">Điện tử</option>
+                <option value="clothing">Quần áo</option>
+                <option value="home-appliance">Đồ gia dụng</option>
+                <option value="other">Khác</option>
+            </select>
+        </div>
+
+        <!-- Product Image -->
+        <div class="mb-3">
+            <label for="productImage" class="form-label">Ảnh sản phẩm</label>
+            <input class="form-control" type="file" id="productImage" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Tạo sản phẩm</button>
+    </form>
+</div>

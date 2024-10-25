@@ -38,5 +38,6 @@ class ProductDetailController {
       next(error);
     }
   }
+
 }
 module.exports = new ProductDetailController();
