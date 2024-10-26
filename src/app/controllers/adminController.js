@@ -1,5 +1,6 @@
 const products = require("../models/products");
 const { multipleMongooesToObject } = require("../../util/mongooes");
+const e = require("express");
 class AdminController {
   //tham so phai theo thu tu req res, next neu khong se bi loi
   async home(req, res, next) {
@@ -15,11 +16,18 @@ class AdminController {
   }
   async create(req, res, next) {
     try {
-      
       res.render("admin/createProduct");
     } catch (error) {
       next(error);
     }
+  }
+  //post product
+  async created(req, res, next) {
+   try {
+    res.json(req.body)
+   } catch (error) {
+    next(error)
+   }
   }
   async delete(req, res, next) {
     try {
