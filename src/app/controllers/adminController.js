@@ -23,11 +23,20 @@ class AdminController {
   }
   //post product
   async created(req, res, next) {
-   try {
-    res.json(req.body)
-   } catch (error) {
-    next(error)
-   }
+    try {
+      const getdata = req.body;
+      const data = new products(getdata);
+      await data.save();
+      res.status(201).json({
+        messsage : "created data success",
+        data : data,
+      })
+      if (data) {
+        res.redirect('/admin')
+      }
+    } catch (error) {
+      next(error);
+    }
   }
   async delete(req, res, next) {
     try {

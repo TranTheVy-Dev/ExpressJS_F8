@@ -7,7 +7,7 @@
             Top Dịch vụ sử dụng nhiều
           </a>
           {{#each docs}}
-          <a href="/productDetail/{{this.slug}}" class="list-group-item list-group-item-action">{{this.name}}</a>
+          <a href="/productDetail/{{this._id}}" class="list-group-item list-group-item-action">{{this.name}}</a>
           {{/each}}
         </div>
       </div>
@@ -60,7 +60,7 @@
           <div class="card-body">
             <h5 class="card-title">{{this.name}}</h5>
             <p class="card-text">{{this.price}} $</p>
-            <a href="/productDetail/{{this.slug}}" class="btn btn-outline-success btn-lg">xem chi tiết</a>
+            <a href="/productDetail/{{this._id}}" class="btn btn-outline-success btn-lg">xem chi tiết</a>
           </div>
         </div>
       </div>

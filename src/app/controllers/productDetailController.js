@@ -16,9 +16,10 @@ class ProductDetailController {
   // }
   async show(req, res, next) {
     try {
-      const doc = await products.findOne({ slug: req.params.slug });
+      const doc = await products.findById({_id : req.params._id});
       const docs = await products.find({});
-
+      console.log(req.params._id);
+      
       if (!doc && !docs) {
         res.send("Doc not Found");
       }

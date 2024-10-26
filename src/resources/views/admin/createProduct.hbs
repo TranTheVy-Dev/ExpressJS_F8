@@ -3,41 +3,40 @@
     <form method="POST" action="/admin/create"> 
         <!-- Product Name -->
         <div class="mb-3">
-            <label for="productName" class="form-label">Tên sản phẩm</label>
-            <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm" required>
+            <label for="name" class="form-label">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên sản phẩm" required>
         </div>
 
         <!-- Product Description -->
         <div class="mb-3">
-            <label for="productDescription" class="form-label">Mô tả sản phẩm</label>
-            <input type="text" class="form-control" id="description" placeholder="Nhập tên sản phẩm" required>
-
+            <label for="description" class="form-label">Mô tả sản phẩm</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Nhập mô tả sản phẩm" required>
         </div>
+
         <!-- Product Price -->
         <div class="mb-3">
-            <label for="productPrice" class="form-label">Giá sản phẩm (VNĐ)</label>
-            <input type="number" class="form-control" id="price" placeholder="Nhập giá sản phẩm" required>
+            <label for="price" class="form-label">Giá sản phẩm (VNĐ)</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="Nhập giá sản phẩm" required>
         </div>
 
         <!-- Product Category -->
         <div class="mb-3">
-            <label for="productCategory" class="form-label">Loại sản phẩm</label>
-            <select class="form-select" id="slug" required>
+            <label for="slug" class="form-label">Loại sản phẩm</label>
+            <select class="form-select" id="slug" name="slug" required>
                 <option selected disabled>Chọn loại sản phẩm</option>
-                <option value="cho">Điện tử</option>
-                <option value="meo">Quần áo</option>
-                <option value="ga">Đồ gia dụng</option>
-                <option value="vit">Khác</option>
+                <option value="cho">Tắm Chó</option>
+                <option value="meo">Tắm Mèo</option>
+                <option value="thuoc">chích thuốc</option>
             </select>
         </div>
 
         <!-- Product Image -->
         <div class="mb-3">
-            <label for="imageproduct" class="form-label">đuờng dẫn ảnh sản phẩm </label>
-            <input type="text" class="form-control" id="image" placeholder="dán đường dẫn" required>
+            <label for="image" class="form-label">Đường dẫn ảnh sản phẩm</label>
+            <input type="text" class="form-control" id="image" name="image" placeholder="Dán đường dẫn" required>
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Tạo sản phẩm</button>
+        <button type="submit" class="btn btn-outline-success">Tạo sản phẩm</button>
     </form>
 </div>
