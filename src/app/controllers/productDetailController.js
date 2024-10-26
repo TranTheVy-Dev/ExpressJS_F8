@@ -17,9 +17,7 @@ class ProductDetailController {
   async show(req, res, next) {
     try {
       const doc = await products.findById({_id : req.params._id});
-      const docs = await products.find({});
-      console.log(req.params._id);
-      
+      const docs = await products.find({});      
       if (!doc && !docs) {
         res.send("Doc not Found");
       }

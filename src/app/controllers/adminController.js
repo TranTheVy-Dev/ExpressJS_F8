@@ -27,13 +27,7 @@ class AdminController {
       const getdata = req.body;
       const data = new products(getdata);
       await data.save();
-      res.status(201).json({
-        messsage : "created data success",
-        data : data,
-      })
-      if (data) {
-        res.redirect('/admin')
-      }
+     res.redirect('/admin')
     } catch (error) {
       next(error);
     }
