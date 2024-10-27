@@ -1,7 +1,6 @@
-const express = require ('express')
-const Router = express.Router()
-const categoriesController = require ('../app/controllers/categoriesController')
+const express = require("express");
+const Router = express.Router();
+const categoriesController = require("../app/controllers/categoriesController");
 
-
-
-module.exports = Router
+Router.get("/:slug", categoriesController.category);
+module.exports = Router;

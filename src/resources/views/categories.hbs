@@ -1,0 +1,17 @@
+<body></body>
+    <div class="row mt-4">
+        {{#each data}}
+        <div class="col-sm-3">
+            <div class="card mb-3">
+                <img src="{{this.image}}" class="card-img-top" alt="..." style="height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text mt-3">{{this.price}} $</p>
+                    <a href="/productDetail/{{this._id}}" class="btn btn-outline-success btn-lg">xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</body>
