@@ -16,9 +16,15 @@ class ProductDetailController {
   // }
   async show(req, res, next) {
     try {
-      const doc = await products.findById({_id : req.params._id});
-      const docs = await products.find({});      
-      if (!doc && !docs && ! data) {
+      //random data
+      const count = await products.countDocuments(); // Đếm số lượng tài liệu
+      const random = Math.floor(Math.random() * count);
+
+      //get data
+      const doc = await products.findById(req.params._id);
+      const docs = await products.find().skip(random).limit(4);
+      
+      if (!doc && !docs) {
         res.send("data not Found");
       }
       res.render(
@@ -37,6 +43,5 @@ class ProductDetailController {
       next(error);
     }
   }
-
 }
 module.exports = new ProductDetailController();
