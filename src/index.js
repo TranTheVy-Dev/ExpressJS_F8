@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -7,8 +7,6 @@ const handlebars = require("express-handlebars"); // import thu vien handerbars 
 const path = require("path");
 const route = require("./routes");
 const db = require("./config/db");
-
-
 //connect db
 db.connect();
 //xử lý dữ liệu từ form data

@@ -1,6 +1,5 @@
 const products = require("../models/products");
-const { multipleMongooesToObject } = require("../../util/mongooes");
-const e = require("express");
+const { multipleMongooesToObject,mongooesToObject } = require("../../util/mongooes");
 class AdminController {
   //tham so phai theo thu tu req res, next neu khong se bi loi
   async home(req, res, next) {
@@ -27,7 +26,7 @@ class AdminController {
       const getdata = req.body;
       const data = new products(getdata);
       await data.save();
-     res.redirect('/admin')
+      res.redirect("/admin");
     } catch (error) {
       next(error);
     }
@@ -41,9 +40,24 @@ class AdminController {
   }
   async update(req, res, next) {
     try {
-      res.render("admin/updateProduct");
-    } catch (error) {
+      //bởi vì chưa lấy id mà tk data đã load nên xảy ra lỗi phải khai báo thêm bất đồng bộ(id) để khi có id thì cái tk data mới được chạy
+      const id =  await req.params._id
+      const data = await products.findById(req.params.id);
+      if (!data) {
+        res.send("data not found")
+      }
+      res.render("admin/updateProduct", {
+        data: mongooesToObject(data),
+      });
+   } catch (error) {
       next(error);
+    }
+  }
+  async updated (req, res , next){
+    try {
+      
+    } catch (error) {
+      next(error)
     }
   }
 }
