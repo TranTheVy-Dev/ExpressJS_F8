@@ -36,7 +36,13 @@ class AdminController {
   }
   async delete(req, res, next) {
     try {
-      res.render("admin/deleteProduct");
+      const id = await req.params._id;
+      const deleted = await products.findByIdAndDelete(req.params.id);
+      if (deleted) {
+        res.redirect("/admin");
+      } else {
+        console.log("eo xoa dc");
+      }
     } catch (error) {
       next(error);
     }
@@ -58,20 +64,24 @@ class AdminController {
   }
   async updated(req, res, next) {
     try {
-      const id = await req.params._id;      
+      const id = await req.params._id;
       const updateProduct = await {
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
         image: req.body.image,
       };
-      const update = await products.findByIdAndUpdate(req.params.id, updateProduct, {
-        new: true,
-      });
+      const update = await products.findByIdAndUpdate(
+        req.params.id,
+        updateProduct,
+        {
+          new: true,
+        }
+      );
       if (update) {
-        res.redirect("/admin")
+        res.redirect("/admin");
       } else {
-        res.send ("data not update")
+        res.send("data not update");
       }
     } catch (error) {
       next(error);

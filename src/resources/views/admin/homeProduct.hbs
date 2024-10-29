@@ -9,7 +9,7 @@
                     <th>Hình</th>
                     <th class="text-start">Tên</th>
                     <th class="text-start">Ngày tạo</th>
-                    <th class="text-start">Ngày sửa</th>
+                    <th class="text-start">mục</th>
                     <th class="text-end">Giá</th>
                     <th class="text-end"></th>
                 </thead>
@@ -21,12 +21,12 @@
                         </td>
                         <td class="text-start">{{this.name}}</td>
                         <td class="text-start">{{this.createdAt}}</td>
-                        <td class="text-start">{{updatedAt}}</td>
+                        <td class="text-start">{{this.slug}}</td>
                         <td class="text-end">{{this.price}}$</td>
                         <td class="text-end">
-                            <button class="btn btn-outline-success"><a href="/admin/update/{{this._id}}"><i
+                            <button class="btn btn-outline-success"><a style="text-decoration: none; color: yellow;" href="/admin/update/{{this._id}}"><i
                                         class="fa-solid fa-gear"></i></a></button>
-                            <button class="btn btn-outline-danger mt-2"><a href="/admin/delete/{{this._id}}"><i
+                            <button class="btn btn-outline-danger mt-2"><a style="text-decoration: none; color: red;" href="/admin/delete/{{this._id}}"><i
                                         class="fa-solid fa-trash-can"></i></a></button>
                         </td>
                     </tr>
