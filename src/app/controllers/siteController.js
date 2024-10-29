@@ -21,8 +21,17 @@ class SiteController {
       next(error);
     }
   }
-  search(req, res) {
-    res.send("test slug");
+  async search(req, res, next) {
+    try {
+      //req.query.keyword || " "; nếu req ko có giá trị nó sẽ trả về 1 đối tượnng rỗng , nếu có thì trả  về keyword , dùng để đảm bảo rằng keyword sẽ khôg undefind
+      const keyword =  req.query.keyword || " ";
+      // biến regex hoạt động khi có keyword được gởi lên biến regex sẽ kiếm tra những data có giá trị name khớp với keyword đưa lên  
+      const search = await products.find({ name: { $regex: keyword, $options: "i" } });
+      res.render("searchResults", {
+        search: multipleMongooesToObject(search),
+        keyword,
+      });      
+    } catch (error) {}
   }
 }
 module.exports = new SiteController();

@@ -7,6 +7,7 @@ const handlebars = require("express-handlebars"); // import thu vien handerbars 
 const path = require("path");
 const route = require("./routes");
 const db = require("./config/db");
+
 //connect db
 db.connect();
 //xử lý dữ liệu từ form data
@@ -32,6 +33,10 @@ app.engine(
     },
     extname: ".hbs",
     partialsDir: path.join(__dirname, "resources", "views", "partials"),
+    // thêm cái này để làm cái bắt lỗi rỗng keyword
+    helpers: {
+      eq: (a, b) => a === b,
+    },
   })
 );
 //set view engie = cai name handlebars vua dang ky luc nay
