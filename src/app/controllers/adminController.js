@@ -1,5 +1,8 @@
 const products = require("../models/products");
-const { multipleMongooesToObject,mongooesToObject } = require("../../util/mongooes");
+const {
+  multipleMongooesToObject,
+  mongooesToObject,
+} = require("../../util/mongooes");
 class AdminController {
   //tham so phai theo thu tu req res, next neu khong se bi loi
   async home(req, res, next) {
@@ -41,23 +44,37 @@ class AdminController {
   async update(req, res, next) {
     try {
       //bởi vì chưa lấy id mà tk data đã load nên xảy ra lỗi phải khai báo thêm bất đồng bộ(id) để khi có id thì cái tk data mới được chạy
-      const id =  await req.params._id
+      const id = await req.params._id;
       const data = await products.findById(req.params.id);
       if (!data) {
-        res.send("data not found")
+        res.send("data not found");
       }
       res.render("admin/updateProduct", {
         data: mongooesToObject(data),
       });
-   } catch (error) {
+    } catch (error) {
       next(error);
     }
   }
-  async updated (req, res , next){
+  async updated(req, res, next) {
     try {
-      
+      const id = await req.params._id;      
+      const updateProduct = await {
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        image: req.body.image,
+      };
+      const update = await products.findByIdAndUpdate(req.params.id, updateProduct, {
+        new: true,
+      });
+      if (update) {
+        res.redirect("/admin")
+      } else {
+        res.send ("data not update")
+      }
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 }
