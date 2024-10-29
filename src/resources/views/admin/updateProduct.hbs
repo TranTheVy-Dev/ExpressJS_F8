@@ -1,10 +1,12 @@
 <div class="container mt-5">
     <h2 class="mb-4">Chỉnh sửa sản phẩm </h2>
+    <a class="btn btn-outline-success float-end mb-3" href="/admin">Trở về</a>
     <form method="POST" action="/admin/update/{{data._id}}">
         <!-- Product Name -->
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
-            <input type="text" class="form-control" value="{{data.name}}" id="name" name="name" placeholder="Nhập tên sản phẩm" required>
+            <input type="text" class="form-control" value="{{data.name}}" id="name" name="name"
+                placeholder="Nhập tên sản phẩm" required>
         </div>
 
         <!-- Product Description -->
@@ -17,13 +19,14 @@
         <!-- Product Price -->
         <div class="mb-3">
             <label for="price" class="form-label">Giá sản phẩm (VNĐ)</label>
-            <input type="number" class="form-control" value="{{data.price}}" id="price" name="price" placeholder="Nhập giá sản phẩm" required>
+            <input type="number" class="form-control" value="{{data.price}}" id="price" name="price"
+                placeholder="Nhập giá sản phẩm" required>
         </div>
 
         <!-- Product Category -->
         <div class="mb-3">
             <label for="slug" class="form-label">Loại sản phẩm</label>
-            <select class="form-select"  id="slug" name="slug" required>
+            <select class="form-select" id="slug" name="slug" required>
                 <option selected disabled>Chọn loại sản phẩm</option>
                 <option value="cho">Tắm Chó</option>
                 <option value="meo">Tắm Mèo</option>
@@ -35,7 +38,8 @@
         <!-- Product Image -->
         <div class="mb-3">
             <label for="image" class="form-label">Đường dẫn ảnh sản phẩm</label>
-            <input type="text" class="form-control" value="{{data.image}}" id="image" name="image" placeholder="Dán đường dẫn" required>
+            <input type="text" class="form-control" value="{{data.image}}" id="image" name="image"
+                placeholder="Dán đường dẫn" required>
         </div>
 
         <!-- Submit Button -->

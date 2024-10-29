@@ -21,9 +21,12 @@ class ProductDetailController {
       const random = Math.floor(Math.random() * count);
 
       //get data
-      const doc = await products.findById(req.params._id);
-      const docs = await products.find().skip(random).limit(4);
-      
+      const doc = await products.findById({
+        _id: req.params._id,
+        isDeleted: true,
+      });
+      const docs = await products.find({}).skip(random).limit(4);
+
       if (!doc && !docs) {
         res.send("data not Found");
       }
