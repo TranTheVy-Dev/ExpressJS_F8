@@ -7,11 +7,11 @@ class AdminController {
   //tham so phai theo thu tu req res, next neu khong se bi loi
   async home(req, res, next) {
     try {
-      const docs = await products.find({isDeleted: true});
+      const docs = await products.find({ isDeleted: true });
       if (!docs) {
         res.send("doc not found");
       }
-      res.render("admin/homeProduct", { docs: multipleMongooesToObject(docs)  });
+      res.render("admin/homeProduct", { docs: multipleMongooesToObject(docs) });
     } catch (error) {
       next(error);
     }
@@ -58,27 +58,28 @@ class AdminController {
     });
   }
   async restored(req, res, next) {
-   try {
-    const id = await req.params._id;
-    const restored = await products.findByIdAndUpdate(
-      req.params.id,
-      { isDeleted: true },
-      { new: true }
-    );
-    if (!restored) {
-      console.log("ko khoi phuc duoc");
-    } else {
-      res.redirect("/admin/restore");
-    }
-   } catch (error) {
-    
-   }
+    try {
+      const id = await req.params._id;
+      const restored = await products.findByIdAndUpdate(
+        req.params.id,
+        { isDeleted: true },
+        { new: true }
+      );
+      if (!restored) {
+        console.log("ko khoi phuc duoc");
+      } else {
+        res.redirect("/admin/restore");
+      }
+    } catch (error) {}
   }
   async update(req, res, next) {
     try {
       //bởi vì chưa lấy id mà tk data đã load nên xảy ra lỗi phải khai báo thêm bất đồng bộ(id) để khi có id thì cái tk data mới được chạy
       const id = await req.params._id;
-      const data = await products.findById(req.params.id, {isDeleted: true});
+      const data = await products.findById({
+        _id: req.params.id,
+        isDeleted: true,
+      });
       if (!data) {
         res.send("data not found");
       }
