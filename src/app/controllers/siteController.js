@@ -4,9 +4,9 @@ const categories = require("../models/categories");
 class SiteController {
   async index(req, res, next) {
     try {
-      const count = await products.countDocuments();
+      const count = await products.countDocuments({isDeleted: true});
       const random = Math.floor(Math.random() * count);
-      const docs = await products.find({isDeleted: true,}).skip(random).limit(4);
+      const docs = await products.find({isDeleted: true}).skip(random).limit(4);
       const data = await categories.find({});
       //chuyển đổi các phần tử trong docs(documents) trả về của products.find({}) thành object thuần qua sử dụng phương thức toObject
       //và lưu về trong docsToObject
